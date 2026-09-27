@@ -10,7 +10,8 @@ services:
     
     volumes:
       - pgdata:/var/lib/postgresql/data #também padrão do PostgreeSQL
-    
+      - ./sql:/sql
+      - ./data:/data
 
 
     environment:
