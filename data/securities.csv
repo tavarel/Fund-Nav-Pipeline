@@ -1,0 +1,11 @@
+ticker,name,asset_class,currency,expense_ratio
+IVV,iShares Core S&P 500 ETF,equity,USD,0.0003
+IJH,iShares Core S&P Mid-Cap ETF,equity,USD,0.0005
+IJR,iShares Core S&P Small-Cap ETF,equity,USD,0.0006
+EFA,iShares MSCI EAFE ETF,equity,USD,0.0032
+IEMG,iShares Core MSCI Emerging Markets ETF,equity,USD,0.0009
+EWJ,iShares MSCI Japan ETF,equity,USD,0.0049
+AGG,iShares Core U.S. Aggregate Bond ETF,fixed_income,USD,0.0003
+TLT,iShares 20+ Year Treasury Bond ETF,fixed_income,USD,0.0015
+IEF,iShares 7-10 Year Treasury Bond ETF,fixed_income,USD,0.0015
+LQD,iShares iBoxx $ Investment Grade Corporate Bond ETF,fixed_income,USD,0.0014
