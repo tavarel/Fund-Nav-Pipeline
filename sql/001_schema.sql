@@ -1,4 +1,11 @@
 -- Creating SQL tables to be inserted on the POSTGRES db.
+BEGIN;
+
+DROP TABLE IF EXISTS prices CASCADE;
+DROP TABLE IF EXISTS positions CASCADE;
+DROP TABLE IF EXISTS portfolios CASCADE;
+DROP TABLE IF EXISTS securities CASCADE;
+
 
 CREATE TABLE securities (
     security_id     INTEGER     GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -18,3 +25,28 @@ CREATE TABLE portfolios (
     created_at      TIMESTAMPTZ   NOT NULL DEFAULT now()
 );
 
+
+CREATE TABLE positions (
+
+    portfolio_id INTEGER NOT NULL REFERENCES portfolios(portfolio_id),
+    security_id INTEGER NOT NULL REFERENCES securities(security_id),
+    position_date DATE NOT NULL,
+    quantity NUMERIC(18,6) NOT NULL CHECK(quantity >= 0),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (portfolio_id, security_id, position_date)
+
+);
+
+
+CREATE TABLE prices (
+    security_id INTEGER NOT NULL REFERENCES securities(security_id),
+    close_price NUMERIC(18, 6) NOT NULL CHECK(close_price > 0),
+    price_date DATE NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+
+    PRIMARY KEY (security_id, price_date)
+    
+);
+
+
+COMMIT;
