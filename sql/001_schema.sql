@@ -1,4 +1,5 @@
 -- Creating SQL tables to be inserted on the POSTGRES db.
+-- docker compose exec db psql -U fund_admin -d fund_nav -v ON_ERROR_STOP=1 -f /sql/001_schema.sql
 BEGIN;
 
 DROP TABLE IF EXISTS nav_history CASCADE;
